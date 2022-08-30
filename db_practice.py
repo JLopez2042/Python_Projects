@@ -1,3 +1,12 @@
+#
+# Python: 3.6.4
+#
+# Author: Jacob A. Lopez
+#
+#
+# Purpose: The Tech Academy - Python Course, Creating a database with a script
+#                             that iterates through a tuple to adds only files that end in .txt
+
 
 import sqlite3
 
