@@ -9,7 +9,7 @@ obj._protectedVar = 34
 print(obj._protectedVar)
 
 # Creating a private variable
-class Protected:
+class Protected2:
     def __init__(self):
         self.__privateVar = 12
     
@@ -19,7 +19,7 @@ class Protected:
     def setPrivate(self, private):
         self.__privateVar = private
 
-obj = Protected()
+obj = Protected2()
 obj.getPrivate()
 obj.setPrivate(23)
 obj.getPrivate()
