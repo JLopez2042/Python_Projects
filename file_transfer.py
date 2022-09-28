@@ -100,7 +100,7 @@ class ParentWindow(Frame):
             #if the modification time was more recent than 24 hours ago...
             if modtime > twentyfour:
                 #moves each file from the source to the destination
-                shutil.move(source + '/' + i, destination)
+                shutil.move(absolutePath, destination)
                 print(i + ' was successfully transferred.')
     
 
