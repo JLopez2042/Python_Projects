@@ -70,7 +70,7 @@ class ParentWindow(Frame):
         selectDestDir = tkinter.filedialog.askdirectory()
         #The .delete(0, END) will clear the content that is inserted in the Entry widget,
         #this allows the path to be inserted into the Entry widget properly.
-        self.destination_dir.insert(0, END)
+        self.destination_dir.delete(0, END)
         #The .insert method will insert the user selection to the destination_dir Entry widget
         self.destination_dir.insert(0, selectDestDir)
 
@@ -82,11 +82,26 @@ class ParentWindow(Frame):
         destination = self.destination_dir.get()
         #Gets a list of files in the source directory
         source_files = os.listdir(source)
+
+        #Gets the current date and time
+        current = datetime.datetime.now()
+        #Gets the time 24 hours ago
+        twentyfour = current - datetime.timedelta(hours=24)
+        
         #Runs through each file in the source directory
         for i in source_files:
-            #moves each file from the source to the destination
-            shutil.move(source + '/' + i, destination)
-            print(i + ' was successfully transferred.')
+            #gets the absolute full path of the file
+            absolutePath = os.path.join(source, i)
+            #gets the modification time of the file in mtime format
+            mtime = os.path.getmtime(absolutePath)
+            #converts the mtime to a proper datetime format
+            modtime = datetime.datetime.fromtimestamp(mtime)
+
+            #if the modification time was more recent than 24 hours ago...
+            if modtime > twentyfour:
+                #moves each file from the source to the destination
+                shutil.move(source + '/' + i, destination)
+                print(i + ' was successfully transferred.')
     
 
     #Creates function to exit program
