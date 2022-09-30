@@ -1,6 +1,6 @@
 # Python_Projects
 
-These are basic projects written in Python. They use variou modules such as tkinter or sqlite3.
+These are basic projects written in Python. They use various modules such as tkinter or sqlite3.
 
 ## Projects
 
